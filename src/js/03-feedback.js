@@ -28,4 +28,36 @@
 
 import throttle from 'lodash.throttle';
 
-console.log(throttle);
+const formData = document.querySelector('.feedback-form');
+let inputStorage = {};
+
+formData.addEventListener('input', throttle(onInputForm, 500));
+formData.addEventListener('submit', onSubmitForm);
+
+onReloadPage();
+
+function onInputForm(event) {
+  inputStorage[event.target.name] = event.target.value;
+
+  localStorage.setItem('feedback-form-state', JSON.stringify(inputStorage));
+}
+
+function onSubmitForm(event) {
+  event.preventDefault();
+
+  const formDataConsoled = new FormData(formData);
+  formDataConsoled.forEach((value, name) => console.log({ [name]: value }));
+
+  event.target.reset();
+  localStorage.removeItem('feedback-form-state');
+}
+
+function onReloadPage(event) {
+  let savedStorageValues = localStorage.getItem('feedback-form-state');
+  if (savedStorageValues) {
+    savedStorageValues = JSON.parse(savedStorageValues);
+    Object.entries(savedStorageValues).forEach(([name, value]) => {
+      formData.elements[name].value = value;
+    });
+  }
+}
