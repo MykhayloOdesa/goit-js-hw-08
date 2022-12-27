@@ -23,3 +23,9 @@
 // Зберігай час відтворення у локальне сховище. Нехай ключем для сховища буде рядок "videoplayer-current-time".
 // Під час перезавантаження сторінки скористайся методом setCurrentTime() з метою відновлення відтворення зі збереженої позиції.
 // Додай до проекту бібліотеку lodash.throttle і зроби так, щоб час відтворення оновлювався у сховищі не частіше, ніж раз на секунду.
+
+import Player from '@vimeo/player';
+import throttle from 'lodash.throttle';
+
+console.log(Player);
+console.log(throttle);
