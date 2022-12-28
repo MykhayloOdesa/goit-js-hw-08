@@ -12,6 +12,9 @@
 // // Додатковий імпорт стилів
 // import "simplelightbox/dist/simple-lightbox.min.css";
 
+// Додай бібліотеку SimpleLightbox як залежність проекту, використовуючи npm
+// (посилання на CDN з твоєї минулої роботи більше не потрібне).
+// Для того щоб підключити CSS код бібліотеки в проект, необхідно додати ще один імпорт, крім того, що описаний в документації.
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 // Add imports above this line
@@ -20,6 +23,8 @@ import { galleryItems } from './gallery-items';
 
 console.log(galleryItems);
 
+// Використовуй свій JavaScript код з попередньої домашньої роботи, але виконай рефакторинг з урахуванням того,
+// що бібліотека була встановлена через npm(синтаксис import/export).
 const galleryRef = document.querySelector('.gallery');
 
 // Створення і рендер розмітки на підставі масиву даних galleryItems і наданого шаблону елемента галереї.
